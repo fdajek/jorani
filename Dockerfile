@@ -1,7 +1,7 @@
 FROM cimg/base:2020.01
 
-RUN apt update -y 
-RUN apt upgrade -y
+#RUN apt update -y 
+#RUN apt upgrade -y
 RUN apt install -y git
 RUN export DEBIAN_FRONTEND=noninteractive
 RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
