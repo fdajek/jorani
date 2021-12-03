@@ -15,12 +15,13 @@ RUN apt install -y php-gd
 RUN apt install -y php-xml
 RUN apt install -y php-zip
 RUN apt install -y mysql-server
-#RUN service mysql stop
-#RUN usermod -d /var/lib/mysql/ mysql
-#RUN service mysql start
+RUN apt install -y mysql-client
+RUN service mysql start
+RUN /bin/bash -c "/usr/sbin/mysqld &" && \
+  sleep 5 && \
+  mysql -u root -e "CREATE DATABASE lms" && \
+  mysql -u root -e "CREATE USER 'fdajek'@'localhost' IDENTIFIED BY 'hzerg734';" && \
+  mysql -u root  -e "GRANT all ON *.* TO 'fdajek'@'localhost';"
 RUN sleep 20
 RUN rm -rf /var/www/html
 RUN git clone https://github.com/fdajek/jorani.git  /var/www/html/
-RUN mysql -u root  -e "CREATE USER 'fdajek'@'localhost' IDENTIFIED BY 'hzerg734';"
-RUN mysql -u root  -e "GRANT all ON *.* TO 'fdajek'@'localhost';"
-RUN mysql -u root  -e "create database lms;"
