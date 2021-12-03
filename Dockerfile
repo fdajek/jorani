@@ -15,7 +15,9 @@ RUN apt install -y php-gd
 RUN apt install -y php-xml
 RUN apt install -y php-zip
 RUN apt install -y mysql-server
-RUN service mysql restart
+RUN systemctl stop mysql.service
+RUN usermod -d /var/lib/mysql/ mysql
+RUN systemctl start mysql.service
 RUN sleep 60
 RUN rm -rf /var/www/html
 RUN git clone https://github.com/fdajek/jorani.git  /var/www/html/
