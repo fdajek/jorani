@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM cimg/base:2020.01
 
 RUN apt update -y 
 RUN apt upgrade -y
