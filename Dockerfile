@@ -3,8 +3,8 @@ FROM cimg/base:2020.01
 #RUN apt update -y 
 #RUN apt upgrade -y
 RUN sudo apt install -y git
-RUN sudo export DEBIAN_FRONTEND=noninteractive
-RUN sudo ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+RUN export DEBIAN_FRONTEND=noninteractive
+RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
 RUN sudo apt-get install -y tzdata
 RUN sudo dpkg-reconfigure --frontend noninteractive tzdata
 RUN sudo apt install -y apache2
