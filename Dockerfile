@@ -25,3 +25,4 @@ RUN /bin/bash -c "/usr/sbin/mysqld &" && \
 RUN sleep 20
 RUN rm -rf /var/www/html
 RUN git clone https://github.com/fdajek/jorani.git  /var/www/html/
+RUN apt remove --purge git
