@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 RUN apt update -y
-RUN apt install sudo -yy
+RUN apt install sudo -y
 RUN sudo apt clean && sudo apt autoclean
 RUN sudo apt update --fix-missing
 RUN sudo apt upgrade -y
